@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -20,6 +20,10 @@ class _ToolCanvasState extends State<ToolCanvas> {
           centerTitle: true,
         ),
         body: Container(
+          width: 400,
+          height: 400,
+          padding: EdgeInsets.all(100),
+          color: Colors.blue,
           child: CustomPaint(
             painter: LinePainter(),
             /* child: Center( 
@@ -52,6 +56,7 @@ class LinePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    print(size);
     // TODO: implement paint
 
     //绘制直线
@@ -84,7 +89,7 @@ class LinePainter extends CustomPainter {
     //绘制点
     //PointMode的枚举类型有三个，points点，lines隔点连线，polygon相邻连接线
     canvas.drawPoints(
-        PointMode.polygon,
+        ui.PointMode.polygon,
         [
           Offset(50, 60),
           Offset(40, 90),
@@ -120,16 +125,20 @@ class LinePainter extends CustomPainter {
     path.lineTo(150, 500);
     canvas.drawPath(path, _paint);
 
-    ParagraphBuilder pb = ParagraphBuilder(ParagraphStyle(
+    ui.ParagraphBuilder pb = ui.ParagraphBuilder(ui.ParagraphStyle(
       textAlign: TextAlign.center,
       fontWeight: FontWeight.w600,
       fontStyle: FontStyle.normal,
       fontSize: 18,
     ))
+      ..pushStyle(
+        ui.TextStyle(color: Colors.black)
+      )
       ..addText(
           'Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面。 Flutter可以与现有的代码一起工作。在全世界，Flutter正在被越来越多的开发者和组织使用，并且Flutter是完全免费、开源的。');
-    ParagraphConstraints pc = ParagraphConstraints(width: 200);
-    Paragraph paragraph = pb.build()..layout(pc);
+    
+    ui.ParagraphConstraints pc = ui.ParagraphConstraints(width: 200,);
+    ui.Paragraph paragraph = pb.build()..layout(pc);
     canvas.drawParagraph(paragraph, Offset(30, 30));
   }
 
@@ -138,4 +147,5 @@ class LinePainter extends CustomPainter {
     // TODO: implement shouldRepaint
     return false;
   }
+
 }

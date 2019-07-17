@@ -9,6 +9,10 @@ import '../pages/My/AccountManager.dart';
 import '../pages/My/Setting.dart';
 
 import '../pages/tool/Canvas.dart';
+import '../pages/tool/AddEvent.dart';
+import '../pages/tool/flutterHtml.dart';
+import '../pages/tool/charts.dart';
+import '../pages/tool/ChartsFlutter.dart';
 
 //配置路由
 final routes = {
@@ -25,7 +29,11 @@ final routes = {
     withZoom: true,
     withLocalStorage: true,
   ),
-  '/canvas': (context) => ToolCanvas()
+  '/canvas': (context) => ToolCanvas(),
+  '/AddEvent': (context) => AddEvent(),
+  '/flutterHtml': (context) => MyHomePage(),
+  '/charts': (context) => Charts(),
+  '/chartsFlutter': (context) => GroupedStackedBarChart
 };
 
 //固定写法
