@@ -13,7 +13,7 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState(){
     super.initState();
-    new Future.delayed(Duration(seconds: 20), () {
+    new Future.delayed(Duration(seconds: 3), () {
       print('APP 页面即将呈现');
       Navigator.of(context).pushReplacementNamed('/app');
     });

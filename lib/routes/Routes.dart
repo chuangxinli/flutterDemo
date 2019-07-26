@@ -12,7 +12,9 @@ import '../pages/tool/Canvas.dart';
 import '../pages/tool/AddEvent.dart';
 import '../pages/tool/flutterHtml.dart';
 import '../pages/tool/charts.dart';
-import '../pages/tool/ChartsFlutter.dart';
+
+import '../pages/tool/ImageView.dart';
+import '../pages/tool/SelfHtml.dart';
 
 //配置路由
 final routes = {
@@ -21,19 +23,18 @@ final routes = {
   '/my_accountmanager': (content) => AccountManager(),
   '/my_setting': (conent, {arguments}) => Setting(arguments: arguments),
   '/web_view': (_) => WebviewScaffold(
-    url: 'https//www.baidu.com/',
+    url: 'https//www.baidu.com',
     appBar: AppBar(
       title: Text('webview'),
       centerTitle: true,
     ),
-    withZoom: true,
-    withLocalStorage: true,
   ),
   '/canvas': (context) => ToolCanvas(),
   '/AddEvent': (context) => AddEvent(),
   '/flutterHtml': (context) => MyHomePage(),
   '/charts': (context) => Charts(),
-  '/chartsFlutter': (context) => GroupedStackedBarChart
+  '/imageView': (context) => ImageView(),
+  '/selfHtml': (context) => SelfHtml(),
 };
 
 //固定写法
