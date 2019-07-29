@@ -60,7 +60,7 @@ class LinePainter extends CustomPainter {
     // TODO: implement paint
 
     //绘制直线
-    canvas.drawLine(Offset(20, 20), Offset(300, 20), _paint);
+    canvas.drawLine(Offset(0, 0), Offset(300, 20), _paint);
 
     //绘制圆，参数为中心点，半径，画笔
     //canvas.drawCircle(Offset(150, 150), 150, _paint);
@@ -129,7 +129,7 @@ class LinePainter extends CustomPainter {
       textAlign: TextAlign.center,
       fontWeight: FontWeight.w600,
       fontStyle: FontStyle.normal,
-      fontSize: 18,
+      fontSize: 10,
     ))
       ..pushStyle(
         ui.TextStyle(color: Colors.black)
@@ -139,7 +139,15 @@ class LinePainter extends CustomPainter {
     
     ui.ParagraphConstraints pc = ui.ParagraphConstraints(width: 200,);
     ui.Paragraph paragraph = pb.build()..layout(pc);
-    canvas.drawParagraph(paragraph, Offset(30, 30));
+    canvas.drawParagraph(paragraph, Offset(0, 0));
+
+    pb.addText('hello world..');
+    void printing() {
+      ui.ParagraphConstraints pc = ui.ParagraphConstraints(width: 200,);
+      ui.Paragraph paragraph = pb.build()..layout(pc);
+      canvas.drawParagraph(paragraph, Offset(100, 100));
+    }
+    printing();
   }
 
   @override
